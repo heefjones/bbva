@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Draft Order by BBVA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles_sample_06.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+
+    <main class="app-shell">
+      <header class="topbar card">
+        <div>
+          <p class="eyebrow">Best Ball Dashboard</p>
+          <h1>Draft Order by BBVA</h1>
+        </div>
+      </header>
+
+      <section id="filtersCard" class="filters-card card">
+        <div class="filters-header">
+          <h2>Filters</h2>
+        </div>
+
+        <div class="filters-grid">
+          <div class="field roster-field">
+            <label>Roster</label>
+            <div class="roster-controls" id="rosterControls">
+              <div class="roster-control">
+                <span class="roster-label">QB</span>
+                <div class="stepper" data-pos="QB">
+                  <button type="button" class="stepper-btn" data-action="decrease" aria-label="Decrease QB">-</button>
+                  <span id="slotQB" class="stepper-value">1</span>
+                  <button type="button" class="stepper-btn" data-action="increase" aria-label="Increase QB">+</button>
+                </div>
+              </div>
+
+              <div class="roster-control">
+                <span class="roster-label">RB</span>
+                <div class="stepper" data-pos="RB">
+                  <button type="button" class="stepper-btn" data-action="decrease" aria-label="Decrease RB">-</button>
+                  <span id="slotRB" class="stepper-value">2</span>
+                  <button type="button" class="stepper-btn" data-action="increase" aria-label="Increase RB">+</button>
+                </div>
+              </div>
+
+              <div class="roster-control">
+                <span class="roster-label">WR</span>
+                <div class="stepper" data-pos="WR">
+                  <button type="button" class="stepper-btn" data-action="decrease" aria-label="Decrease WR">-</button>
+                  <span id="slotWR" class="stepper-value">3</span>
+                  <button type="button" class="stepper-btn" data-action="increase" aria-label="Increase WR">+</button>
+                </div>
+              </div>
+
+              <div class="roster-control">
+                <span class="roster-label">TE</span>
+                <div class="stepper" data-pos="TE">
+                  <button type="button" class="stepper-btn" data-action="decrease" aria-label="Decrease TE">-</button>
+                  <span id="slotTE" class="stepper-value">1</span>
+                  <button type="button" class="stepper-btn" data-action="increase" aria-label="Increase TE">+</button>
+                </div>
+              </div>
+
+              <div class="roster-control">
+                <span class="roster-label">FLEX</span>
+                <div class="stepper" data-pos="FLEX">
+                  <button type="button" class="stepper-btn" data-action="decrease" aria-label="Decrease FLEX">-</button>
+                  <span id="slotFLEX" class="stepper-value">1</span>
+                  <button type="button" class="stepper-btn" data-action="increase" aria-label="Increase FLEX">+</button>
+                </div>
+              </div>
+
+              <div class="roster-control">
+                <span class="roster-label">SFLEX</span>
+                <div class="stepper" data-pos="SFLEX">
+                  <button type="button" class="stepper-btn" data-action="decrease" aria-label="Decrease SFLEX">-</button>
+                  <span id="slotSFLEX" class="stepper-value">0</span>
+                  <button type="button" class="stepper-btn" data-action="increase" aria-label="Increase SFLEX">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field season-field">
+            <label for="minYearSelect">Seasons: <span id="seasonRangeValue">2021 to 2025 (5 seasons)</span></label>
+            <div class="season-select-row">
+              <div class="season-select-group">
+                <span class="season-select-label">Min</span>
+                <select id="minYearSelect" class="season-select" aria-label="Minimum season"></select>
+              </div>
+              <div class="season-select-group">
+                <span class="season-select-label">Max</span>
+                <select id="maxYearSelect" class="season-select" aria-label="Maximum season"></select>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="field scoring-field">
+            <label for="scoringSelect">Scoring</label>
+            <select id="scoringSelect" class="season-select" aria-label="Scoring mode">
+              <option value="half-ppr">half-PPR</option>
+              <option value="ppr">PPR</option>
+            </select>
+          </div>
+
+          <div class="field teams-field">
+            <label>Num Teams</label>
+            <div class="num-teams-control">
+              <div class="stepper" data-pos="TEAMS">
+                <button type="button" class="stepper-btn" data-action="decrease" aria-label="Decrease number of teams">-</button>
+                <span id="numTeamsValue" class="stepper-value">12</span>
+                <button type="button" class="stepper-btn" data-action="increase" aria-label="Increase number of teams">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="board-view">
+        <article class="panel card board-panel">
+          <div class="table-header">
+            <h2>Draft Board</h2>
+          </div>
+          <div id="draftBoard" class="draft-board-scroll"></div>
+        </article>
+      </section>
+    </main>
+
+    <script src="../app.js"></script>
+  </body>
+</html>

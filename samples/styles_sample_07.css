@@ -1,0 +1,7 @@
+@import url("../styles.css");
+body { background: radial-gradient(circle at 7% 12%, rgba(77, 193, 122, 0.24) 0, transparent 38%), radial-gradient(circle at 90% 18%, rgba(58, 171, 202, 0.22) 0, transparent 34%), linear-gradient(145deg, #edf8ee 0%, #ebf7f5 55%, #f4fbf4 100%); }
+.board-cell.qb { background: linear-gradient(145deg, #83b3cf 0%, #5e91b0 100%); }
+.board-cell.rb { background: linear-gradient(145deg, #aad3a2 0%, #84b97b 100%); }
+.board-cell.wr { background: linear-gradient(145deg, #efc28f 0%, #d89f66 100%); }
+.board-cell.te { background: linear-gradient(145deg, #e1a29b 0%, #c87d73 100%); }
+.board-header, .board-round { background: #ebf7ef; color: #2f5a43; }

@@ -1,0 +1,12 @@
+@import url("../styles.css");
+body { color: #f5f0ff; background: radial-gradient(circle at 7% 11%, rgba(0, 232, 255, 0.2) 0, transparent 42%), radial-gradient(circle at 92% 18%, rgba(255, 96, 187, 0.25) 0, transparent 34%), linear-gradient(145deg, #21113e 0%, #381d61 58%, #1b0f33 100%); }
+.eyebrow, .subtle, label, .season-select-label, .roster-label, h1, h2 { color: #f4efff; }
+.season-select, .draft-board-scroll { background: rgba(36, 19, 68, 0.8); color: #f7f3ff; border-color: #655097; }
+.board-cell.empty { background: #312357; }
+.board-cell.qb { background: linear-gradient(145deg, #6fa9cf 0%, #4e82ad 100%); }
+.board-cell.rb { background: linear-gradient(145deg, #c786b7 0%, #a56299 100%); }
+.board-cell.wr { background: linear-gradient(145deg, #b7cf87 0%, #93b060 100%); }
+.board-cell.te { background: linear-gradient(145deg, #e0b58d 0%, #c79268 100%); }
+.board-header, .board-round { background: #3b2565; color: #f1e8ff; }
+.board-cell, .board-header, .board-round { border-color: #614293; }
+.board-pick-number, .board-metric-line, .board-vorp { color: #f2e9ff; }

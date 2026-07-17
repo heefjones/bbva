@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Best Ball Value Added</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+
+    <main class="app-shell">
+      <header class="topbar card">
+        <div>
+          <p class="eyebrow">Best Ball Dashboard</p>
+          <div class="title-row">
+            <h1>Best Ball Value Added</h1>
+            <button type="button" id="infoButton" class="info-button" aria-label="About Best Ball Value Added">i</button>
+          </div>
+        </div>
+      </header>
+
+      <section id="filtersCard" class="filters-card card">
+        <div class="filters-header">
+          <div class="filters-header-title">
+            <h2>Filters</h2>
+            <button
+              type="button"
+              id="filtersCollapseButton"
+              class="filters-collapse-button"
+              aria-expanded="true"
+              aria-controls="filtersGrid"
+              aria-label="Collapse filters"
+            >−</button>
+          </div>
+          <div class="filter-presets" aria-label="Filter presets">
+            <span class="filter-presets-label">Presets:</span>
+            <button type="button" class="preset-button" data-preset="underdog">Underdog</button>
+            <button type="button" class="preset-button" data-preset="underdog-sflex">Underdog SFLEX</button>
+            <button type="button" class="preset-button" data-preset="draftkings">DraftKings</button>
+          </div>
+        </div>
+
+        <div id="filtersGrid" class="filters-grid">
+          <div class="field roster-field">
+            <label>Roster</label>
+            <div class="roster-controls" id="rosterControls">
+              <div class="roster-control">
+                <span class="roster-label">QB</span>
+                <div class="stepper" data-pos="QB">
+                  <button type="button" class="stepper-btn" data-action="decrease" aria-label="Decrease QB">-</button>
+                  <span id="slotQB" class="stepper-value">1</span>
+                  <button type="button" class="stepper-btn" data-action="increase" aria-label="Increase QB">+</button>
+                </div>
+              </div>
+
+              <div class="roster-control">
+                <span class="roster-label">RB</span>
+                <div class="stepper" data-pos="RB">
+                  <button type="button" class="stepper-btn" data-action="decrease" aria-label="Decrease RB">-</button>
+                  <span id="slotRB" class="stepper-value">2</span>
+                  <button type="button" class="stepper-btn" data-action="increase" aria-label="Increase RB">+</button>
+                </div>
+              </div>
+
+              <div class="roster-control">
+                <span class="roster-label">WR</span>
+                <div class="stepper" data-pos="WR">
+                  <button type="button" class="stepper-btn" data-action="decrease" aria-label="Decrease WR">-</button>
+                  <span id="slotWR" class="stepper-value">3</span>
+                  <button type="button" class="stepper-btn" data-action="increase" aria-label="Increase WR">+</button>
+                </div>
+              </div>
+
+              <div class="roster-control">
+                <span class="roster-label">TE</span>
+                <div class="stepper" data-pos="TE">
+                  <button type="button" class="stepper-btn" data-action="decrease" aria-label="Decrease TE">-</button>
+                  <span id="slotTE" class="stepper-value">1</span>
+                  <button type="button" class="stepper-btn" data-action="increase" aria-label="Increase TE">+</button>
+                </div>
+              </div>
+
+              <div class="roster-control">
+                <span class="roster-label">FLEX</span>
+                <div class="stepper" data-pos="FLEX">
+                  <button type="button" class="stepper-btn" data-action="decrease" aria-label="Decrease FLEX">-</button>
+                  <span id="slotFLEX" class="stepper-value">1</span>
+                  <button type="button" class="stepper-btn" data-action="increase" aria-label="Increase FLEX">+</button>
+                </div>
+              </div>
+
+              <div class="roster-control">
+                <span class="roster-label">SFLEX</span>
+                <div class="stepper" data-pos="SFLEX">
+                  <button type="button" class="stepper-btn" data-action="decrease" aria-label="Decrease SFLEX">-</button>
+                  <span id="slotSFLEX" class="stepper-value">0</span>
+                  <button type="button" class="stepper-btn" data-action="increase" aria-label="Increase SFLEX">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field season-field">
+            <label for="minYearSelect">Seasons: <span id="seasonRangeValue">2021 to 2025 (5 seasons)</span></label>
+            <div class="season-select-row">
+              <div class="season-select-group">
+                <span class="season-select-label">Min</span>
+                <select id="minYearSelect" class="season-select" aria-label="Minimum season"></select>
+              </div>
+              <div class="season-select-group">
+                <span class="season-select-label">Max</span>
+                <select id="maxYearSelect" class="season-select" aria-label="Maximum season"></select>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="field scoring-field">
+            <label for="scoringSelect">Scoring</label>
+            <select id="scoringSelect" class="season-select" aria-label="Scoring mode">
+              <option value="half-ppr">half-PPR</option>
+              <option value="ppr">PPR</option>
+            </select>
+          </div>
+
+          <div class="field teams-field">
+            <label>Num Teams</label>
+            <div class="num-teams-control">
+              <div class="stepper" data-pos="TEAMS">
+                <button type="button" class="stepper-btn" data-action="decrease" aria-label="Decrease number of teams">-</button>
+                <span id="numTeamsValue" class="stepper-value">12</span>
+                <button type="button" class="stepper-btn" data-action="increase" aria-label="Increase number of teams">+</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="board-view">
+        <article class="panel card board-panel">
+          <div class="table-header">
+            <h2>Draft Board</h2>
+          </div>
+          <div id="draftBoard" class="draft-board-scroll"></div>
+        </article>
+      </section>
+    </main>
+
+    <div id="infoModal" class="modal-backdrop hidden" aria-hidden="true">
+      <div class="info-modal" role="dialog" aria-modal="true" aria-label="Best Ball Value Added information">
+        <button type="button" id="infoModalClose" class="modal-close-button" aria-label="Close information modal">×</button>
+        <p>
+          BBVA measures how much value a positional slot (RB1, RB2, WR1, WR2, etc.) provides above the last realistic starter at their position in a best ball league. It is inspired by fantasy points over replacement concepts but is tailored specifically for best ball formats, where lineup optimization happens automatically and maximizing draft value is the primary objective.
+        </p>
+        <p>
+          First, we select a sample of seasons. For example, let's use Underdog's standard format (1 QB, 2 RB, 3 WR, 1 TE, 1 FLEX, half-PPR scoring) and the 2024 and 2025 NFL seasons.
+        </p>
+        <p>
+          For each season, we identify every positional slot and calculate the average fantasy points scored by each positional slot across the selected years. The RB1 in 2024 was Saquon Barkley (338.8 points), and the RB1 in 2025 was Christian McCaffrey (365.6 points). Across our two-season sample, the RB1 slot averaged 352.2 fantasy points.
+        </p>
+        <p>
+          Next, we establish the true starter baseline. In this format, 24 RBs, 36 WRs, and 12 TEs are automatically required to fill starting lineups. We then determine which players would have occupied the 12 FLEX spots based on scoring in our sample. In this example, the FLEX pool consisted of 8 RBs and 4 WRs, extending the running back baseline from RB24 to RB32 and the wide receiver baseline from WR36 to WR40.
+        </p>
+        <p>
+          BBVA is calculated by subtracting the average point value of the last viable starter from the average point value of the positional slot being evaluated. Using the RB1 example, the RB1 slot averaged 352.2 points, while the RB32 slot averaged 129.3 points. The resulting BBVA for RB1 is 222.9.
+        </p>
+        <p>
+          Then, every positional slot is compared to the last viable starting slot at that position. The resulting draft board is sorted (descending) by BBVA, showing which positional slots would add the most points to a team.  
+        </p>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
