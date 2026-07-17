@@ -366,11 +366,16 @@ function getAverageTrends(sourceData, years, scoring) {
       const rows = seasonData[position]?.[scoring] || [];
       const cappedRows = rows.slice(0, cap);
 
-      cappedRows.forEach((row) => {
-        if (!aggregate.has(row.posRank)) {
-          aggregate.set(row.posRank, { sum: 0, count: 0 });
+      // Use ordinal slot index per season so tie ranks in source data do not
+      // create gaps (for example, duplicate QB8 with no QB9).
+      cappedRows.forEach((row, index) => {
+        const slotRank = index + 1;
+
+        if (!aggregate.has(slotRank)) {
+          aggregate.set(slotRank, { sum: 0, count: 0 });
         }
-        const entry = aggregate.get(row.posRank);
+
+        const entry = aggregate.get(slotRank);
         entry.sum += row.points;
         entry.count += 1;
       });
